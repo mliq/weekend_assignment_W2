@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "6";
+var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "0";
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -104,17 +104,25 @@ $(document).ready(function(){
 
     // Generate button functionality
     $('.generate').on('click', function(){
-        // Shuffle names array, store in shuffledArray variable
-        shuffledArray = shuffle(namesArray);
-        // if option by size, call appropriate function:
-        if(option == "size"){
-            groupArray = groupBySize(groupNumber, shuffledArray);
+        if(groupNumber == "0" && option == "number"){
+            alert("Please pick the number of teams you want created");
         }
-        else{
-            groupArray = groupByNumber(groupNumber, shuffledArray);
+        if(groupNumber == "0" && option == "size"){
+            alert("Please pick the size of teams you want created");
         }
-        // Call display()
-        display(groupArray);
+        if(groupNumber != "0") {
+            // Shuffle names array, store in shuffledArray variable
+            shuffledArray = shuffle(namesArray);
+            // if option by size, call appropriate function:
+            if (option == "size") {
+                groupArray = groupBySize(groupNumber, shuffledArray);
+            }
+            else {
+                groupArray = groupByNumber(groupNumber, shuffledArray);
+            }
+            // Call display()
+            display(groupArray);
+        }
     });
 
 });
