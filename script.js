@@ -73,18 +73,22 @@ function groupByNumberAndSize(num,sz,arr){
     // Stop when you reach the end of the names though?
     // Create num arrays
     for(i = 0; i < num; i++){
-        newArray[i] = [];
+        // Check for exhaustion of names array
+        if(arr.length > 0) {
+            newArray[i] = [];
         // Add sz names to each
-        for(j = 0; j < sz; j++){
-            if(arr.length > 0) {
-                newArray[i].push(arr.shift());
+            for (j = 0; j < sz; j++) {
+                // Check for exhaustion of names array
+                if (arr.length > 0) {
+                    newArray[i].push(arr.shift());
+                }
             }
         }
     }
     return newArray;
 }
 
-function display(groupArray){
+function display(arr){
 
     // Clear display if 2nd display.
     if(displayCounter!=0) {
@@ -94,10 +98,10 @@ function display(groupArray){
     window.setTimeout(function () {
         $('.results').empty();
         // Write Group Columns
-        for (i = 0; i < groupArray.length; i++) {
+        for (i = 0; i < arr.length; i++) {
             string = "<div class = 'groupColumn'>Team " + (i + 1) + ":<br>";
-            for (j = 0; j < groupArray[i].length; j++) {
-                string += groupArray[i][j] + "<br>";
+            for (j = 0; j < arr[i].length; j++) {
+                string += arr[i][j] + "<br>";
             }
             string += "</div>";
             $('.results').append(string);
