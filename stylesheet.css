@@ -61,9 +61,7 @@ br {
 }
 
 .results {
-    /*float:left;*/
     width: 90%;
-    /*height: auto; /!*auto?*!/*/
     display: none;
     margin: 5px 20px;
     background-color: white;

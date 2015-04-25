@@ -60,11 +60,11 @@ function display(groupArray){
         string += "</div>";
         $('.results').append(string);
     }
-    $('.results').css('height',groupArray.length*50+'px').show();
+    $('.results').css('display','inline-block');
+    //$('.results').css('height',groupArray.length*50+'px').show();
 }
 
 $(document).ready(function(){
-
 
     // Options button functionality
     $('.option').on('click', function(){
@@ -96,8 +96,5 @@ $(document).ready(function(){
         // Call display()
         display(groupArray);
     });
-
-
-
 
 });
