@@ -41,10 +41,22 @@ function groupBySize(groupSize, arr){
 
 function groupByNumber(groupNumber, arr){
     // Determine the number of groups we need.
-    var size = arr.length / groupNumber;
-
+    var size = Math.floor(arr.length / groupNumber);
     groupArray = groupBySize(size, arr);
 
+    // Put extra names into distribute array.
+    var distribute = [];
+
+    // Cycle until groupArray is correct length
+    while(groupArray.length > groupNumber) {
+        distribute = groupArray.pop();
+    }
+    // Now add until distribute is empty
+    i = 0;
+    while (distribute.length != 0 ){
+        groupArray[i].push(distribute.pop());
+        i++;
+    }
     return groupArray;
 }
 
