@@ -1,4 +1,4 @@
-var i = 0, groupSize, shuffledArray, groupArray, groupCounter, string, option;
+var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number";
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -23,50 +23,57 @@ function shuffle(array){
     return newArray;
 }
 
-function groupBySize(groupSize, namesArray){
-    // Determine if groupSize indicates the size of groups or the number of groups
-
+function groupBySize(groupSize, arr){
     // Empty array one by one, sorting into groupsize groups.
     groupArray = [];
     groupCounter = 0;
-    while(shuffledArray.length > 0) {
+    while(arr.length > 0) {
         groupArray[groupCounter] = [];
         for (i = 0; i < groupSize; i++){
             if(shuffledArray.length > 0) {
-                groupArray[groupCounter].push(shuffledArray.pop());
+                groupArray[groupCounter].push(arr.pop());
             }
         }
         groupCounter++;
     }
+    return groupArray;
 }
 
-function display(){
+function groupByNumber(groupNumber, arr){
+    // Determine the number of groups we need.
+    var size = arr.length / groupNumber;
+
+    groupArray = groupBySize(size, arr);
+
+    return groupArray;
+}
+
+function display(groupArray){
     // Clear display
     $('.results').empty();
     // Write Group Columns
     for(i = 0; i < groupArray.length; i++) {
-        string = "<div class = 'groupColumn'>Team " + i + ":<br>";
+        string = "<div class = 'groupColumn'>Team " + (i+1) + ":<br>";
         for (j = 0; j < groupArray[i].length; j++){
             string += groupArray[i][j] + "<br>";
         }
         string += "</div>";
         $('.results').append(string);
     }
-    $('.results').css('height',groupNumber*50+'px').show();
+    $('.results').css('height',groupArray.length*50+'px').show();
 }
 
 $(document).ready(function(){
 
-    // Set default option
-    option = "size";
 
     // Options button functionality
     $('.option').on('click', function(){
-        option = $(this).data('id');
-        console.log(option);
-        // Change color
-        $('.option').toggleClass('selected');
-
+        // Set option and toggle class, but only if not the current option:
+        if(option !=$(this).data('id')) {
+            option = $(this).data('id');
+            // Change color
+            $('.option').toggleClass('selected');
+        }
     });
 
     // Number button functionality
@@ -75,18 +82,19 @@ $(document).ready(function(){
         groupNumber=$(this).text();
     });
 
+    // Generate button functionality
     $('.generate').on('click', function(){
         // Shuffle names array, store in shuffledArray variable
         shuffledArray = shuffle(namesArray);
-        // Get option setting:
-
         // if option by size, call appropriate function:
-        if(option = "size"){
-            // Call groupBySize()
-            groupBySize(groupNumber, shuffledArray);
+        if(option == "size"){
+            groupArray = groupBySize(groupNumber, shuffledArray);
+        }
+        else{
+            groupArray = groupByNumber(groupNumber, shuffledArray);
         }
         // Call display()
-        display();
+        display(groupArray);
     });
 
 
