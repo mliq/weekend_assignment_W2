@@ -62,18 +62,22 @@ function groupByNumber(groupNumber, arr){
 
 function display(groupArray){
     // Clear display
-    $('.results').empty();
-    // Write Group Columns
-    for(i = 0; i < groupArray.length; i++) {
-        string = "<div class = 'groupColumn'>Team " + (i+1) + ":<br>";
-        for (j = 0; j < groupArray[i].length; j++){
-            string += groupArray[i][j] + "<br>";
+    $('.results').fadeOut(2000);
+
+    window.setTimeout(function () {
+        $('.results').empty();
+        // Write Group Columns
+        for (i = 0; i < groupArray.length; i++) {
+            string = "<div class = 'groupColumn'>Team " + (i + 1) + ":<br>";
+            for (j = 0; j < groupArray[i].length; j++) {
+                string += groupArray[i][j] + "<br>";
+            }
+            string += "</div>";
+            $('.results').append(string);
         }
-        string += "</div>";
-        $('.results').append(string);
-    }
-    $('.results').fadeIn(2000).css('display','inline-block');
-    //$('.results').css('height',groupArray.length*50+'px').show();
+        $('.results').fadeIn(2000).css('display', 'inline-block');
+        //$('.results').css('height',groupArray.length*50+'px').show();
+    }, 2000);
 }
 
 $(document).ready(function(){
