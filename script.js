@@ -72,7 +72,7 @@ function display(groupArray){
         string += "</div>";
         $('.results').append(string);
     }
-    $('.results').css('display','inline-block');
+    $('.results').fadeIn(2000).css('display','inline-block');
     //$('.results').css('height',groupArray.length*50+'px').show();
 }
 

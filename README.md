@@ -9,6 +9,8 @@ Create an app that sorts our class of 20 into groups of 2-10 each.
 1. Fade in the teams.
 2. Use class instead of text to identify, or better yet .data().
 3. More visuals (try out jQuery UI?).
+4. Use an array of colors to make each team be a different color.
+5. Make each team fade in sequentially?
 
 ## Bugs to Fix:
 1. Groups of 6 leaves one group of only 2 people...
@@ -34,7 +36,7 @@ You may need to do a little research on how to shuffle the information.
 Additionally, you may need to play with the .delay() jQuery method to time out the animations (hint: .delay(i * seconds) )
 
 ##Hard Mode
-Add in an additional set of buttons that allows for team size, in addition to the set of buttons that figures out team amounts.
+Add in an **additional set of buttons** that allows for team size, in addition to the set of buttons that figures out team amounts.
 
 ##Pro Mode
 Include button functionality for mouse overs and actives (this may require a little research)

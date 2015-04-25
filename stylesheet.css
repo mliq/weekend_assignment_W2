@@ -4,12 +4,10 @@
     height: 40px;
     background-color: lightgrey;
     border: 2px solid black;
-    font-family: monospace;
-    font-size: 35px;
     text-align: center;
     line-height: 40px;
     padding: 10px;
-    /*float:left;*/
+    font-size: 35px;
 }
 
 .optionsContainer {
@@ -23,15 +21,26 @@
     margin: 15px 0 0 5px;
     border: 2px solid cadetblue;
     width: 326px;
-    height: 209px;
-    padding: 15px 0 0 13px;
-    /*margin: 20px 25px;*/
+    height: 230px;
+    padding: 1px 0 0 13px;
+    float:left;
+}
+
+.sizeContainer{
+    float: right;
+    margin: 15px 50px 0 0;
+    border: 2px solid orangered;
+    width: 326px;
+    height: 230px;
+    padding: 1px 0 0 13px;
 }
 
 .container{
+    font-family: monospace;
+    font-size: 25px;
     width: 760px;
     height: 270px;
-    /*border: 2px solid black;*/
+    text-align: center;
 }
 
 .option {
@@ -40,13 +49,9 @@
     margin: 15px;
 }
 
-br {
-    /*line-height: 100px;*/
-}
-
 .generate{
     width: 200px;
-    margin: -45px 0 0 55px;
+    margin: -30px 0 0 55px;
 }
 
 .number {
