@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "0";
+var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "0", displayCounter= 0, delay=0;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -61,9 +61,12 @@ function groupByNumber(groupNumber, arr){
 }
 
 function display(groupArray){
-    // Clear display
-    $('.results').fadeOut(2000);
 
+    // Clear display if 2nd display.
+    if(displayCounter!=0) {
+        $('.results').fadeOut(2000);
+        delay = 2000;
+    }
     window.setTimeout(function () {
         $('.results').empty();
         // Write Group Columns
@@ -77,7 +80,8 @@ function display(groupArray){
         }
         $('.results').fadeIn(2000).css('display', 'inline-block');
         //$('.results').css('height',groupArray.length*50+'px').show();
-    }, 2000);
+    }, delay);
+    displayCounter++;
 }
 
 $(document).ready(function(){
