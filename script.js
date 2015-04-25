@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number";
+var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "6";
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -90,8 +90,16 @@ $(document).ready(function(){
 
     // Number button functionality
     $('.number').on('click',function(){
-        // Get groupNumber from button text.
-        groupNumber=$(this).text();
+
+        // Set groupNumber and toggle class, but only if not the current option:
+        if(groupNumber !=$(this).text()) {
+            // Change color of previous selection
+            $('.number.selected').toggleClass('selected');
+            // Set variable
+            groupNumber=$(this).text();
+            // Change color of new selection
+            $(this).toggleClass('selected');
+        }
     });
 
     // Generate button functionality
