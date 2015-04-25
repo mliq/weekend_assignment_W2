@@ -25,7 +25,7 @@ function shuffle(array){
 
 function groupBySize(groupSize, namesArray){
     // Determine if groupSize indicates the size of groups or the number of groups
-    
+
     // Empty array one by one, sorting into groupsize groups.
     groupArray = [];
     groupCounter = 0;
@@ -43,6 +43,7 @@ function groupBySize(groupSize, namesArray){
 function display(){
     // Clear display
     $('.results').empty();
+    // Write Group Columns
     for(i = 0; i < groupArray.length; i++) {
         string = "<div class = 'groupColumn'>Team " + i + ":<br>";
         for (j = 0; j < groupArray[i].length; j++){
@@ -51,6 +52,7 @@ function display(){
         string += "</div>";
         $('.results').append(string);
     }
+    $('.results').css('height',groupNumber*50+'px').show();
 }
 
 $(document).ready(function(){

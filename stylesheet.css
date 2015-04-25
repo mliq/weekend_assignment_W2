@@ -63,7 +63,8 @@ br {
 .results {
     /*float:left;*/
     width: 90%;
-    height: 300px; /*auto?*/
+    /*height: auto; /!*auto?*!/*/
+    display: none;
     margin: 5px 20px;
     background-color: white;
     border: 2px solid black;
