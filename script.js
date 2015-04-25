@@ -1,4 +1,4 @@
-var i = 0, groupSize, shuffledArray, groupArray, groupCounter;
+var i = 0, groupSize, shuffledArray, groupArray, groupCounter, string;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -42,12 +42,15 @@ function groupMaker(groupSize, namesArray){
 }
 
 function display(){
+    // Clear display
+    $('.results').empty();
     for(i = 0; i < groupArray.length; i++) {
-        $('.results').append("<div class = 'groupColumn'>");
+        string = "<div class = 'groupColumn'>Group " + i + ":<br>";
         for (j = 0; j < groupArray[i].length; j++){
-            $('.results').append(groupArray[i][j]);
+            string += groupArray[i][j] + "<br>";
         }
-        $('.results').append("</div>");
+        string += "</div>";
+        $('.results').append(string);
     }
 }
 
