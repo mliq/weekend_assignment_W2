@@ -41,13 +41,25 @@ function groupMaker(groupSize, namesArray){
     }
 }
 
+function display(){
+    for(i = 0; i < groupArray.length; i++) {
+        $('.results').append("<div class = 'groupColumn'>");
+        for (j = 0; j < groupArray[i].length; j++){
+            $('.results').append(groupArray[i][j]);
+        }
+        $('.results').append("</div>");
+    }
+}
+
 $(document).ready(function(){
 
     $('.generate').on('click',function(){
         // Get groupsize from button text.
         groupSize=$(this).text();
-        // Call groupMaker
+        // Call groupMaker()
         groupMaker(groupSize, namesArray);
+        // Call display()
+        display();
     });
 
 

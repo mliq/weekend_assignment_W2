@@ -1,4 +1,4 @@
-#generateContainer{
+.generateContainer{
     margin: 20px 25px;
 }
 .generate {
@@ -14,7 +14,7 @@
     float:left;
 }
 
-#results {
+.results {
     float:left;
     width: 90%;
     height: 300px; /*auto?*/
