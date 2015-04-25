@@ -1,4 +1,4 @@
-var i = 0, groupSize, shuffledArray, groupArray, groupCounter, string;
+var i = 0, groupSize, shuffledArray, groupArray, groupCounter, string, option;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -23,18 +23,12 @@ function shuffle(array){
     return newArray;
 }
 
-function groupMaker(groupSize, namesArray, toggle){
-    // shuffle names array;
-    shuffledArray = shuffle(namesArray);
-
+function groupBySize(groupSize, namesArray){
     // Determine if groupSize indicates the size of groups or the number of groups
-    // Default will be toggle = 0, thus groupSize means number of groups.
-    if(toggle = 1){
-
-    }
+    
     // Empty array one by one, sorting into groupsize groups.
     groupArray = [];
-    groupCounter=0;
+    groupCounter = 0;
     while(shuffledArray.length > 0) {
         groupArray[groupCounter] = [];
         for (i = 0; i < groupSize; i++){
@@ -61,14 +55,27 @@ function display(){
 
 $(document).ready(function(){
 
-    $('.generate').on('click',function(){
+    // Set default option
+    option = "size";
+
+    $('.number').on('click',function(){
         // Get groupNumber from button text.
         groupNumber=$(this).text();
-        // Call groupMaker()
-        groupMaker(groupNumber, namesArray,1);
+    });
+
+    $('.generate').on('click', function(){
+        // Shuffle names array, store in shuffledArray variable
+        shuffledArray = shuffle(namesArray);
+        // Get option setting:
+
+        // if option by size, call appropriate function:
+        if(option = "size"){
+            // Call groupBySize()
+            groupBySize(groupNumber, shuffledArray);
+        }
         // Call display()
         display();
-    });
+    })
 
 
 
