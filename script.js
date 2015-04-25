@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, groupNumber = "0", displayCounter = 0, delay = 0, size = 0, number = 0;
+var i = 0, shuffledArray, groupArray, groupCounter, string, displayCounter = 0, delay = 0, size = 0, number = 0;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -30,7 +30,7 @@ function groupBySize(groupSize, arr){
     while(arr.length > 0) {
         groupArray[groupCounter] = [];
         for (i = 0; i < groupSize; i++){
-            if(shuffledArray.length > 0) {
+            if(arr.length > 0) {
                 groupArray[groupCounter].push(arr.pop());
             }
         }
@@ -58,6 +58,46 @@ function groupByNumber(groupNumber, arr){
         i++;
     }
     return groupArray;
+}
+
+function groupByNumberAndSize(num,sz,arr){
+    var newArray = [];
+    // If both settings exist
+    if(num != 0 && sz != 0){
+        // Stop when you reach the end of the names though?
+        // Create num arrays
+        for(i = 0; i < num; i++){
+            newArray[i] = [];
+            // Add sz names to each
+            for(j = 0; j < sz; j++){
+                newArray[i].push(arr.shift());
+            }
+        }
+    }
+    // If only Number exists
+    else if(sz==0){
+        sz = Math.floor(arr.length/num);
+        // Create num arrays
+        for(i = 0; i < num; i++){
+            newArray[i] = [];
+            // Add names to each
+            for(j = 0; j < sz; j++){
+                newArray[i].push(arr.shift());
+            }
+        }
+    }
+    // If only Size exists
+    else {
+        num = Math.floor(arr.length/sz);
+        for(i = 0; i < num; i++){
+            newArray[i] = [];
+            // Add names to each
+            for(j = 0; j < sz; j++){
+                newArray[i].push(arr.shift());
+            }
+        }
+    }
+    return newArray;
 }
 
 function display(groupArray){
@@ -90,9 +130,9 @@ $(document).ready(function(){
     $('.number').on('click',function(){
 
         // Determine if button is number or size setter.
-        if($(this).data('size')!=undefined) {
+        if ($(this).data('size') != undefined) {
             // Only act if setting is a change:
-            if(size!=$(this).data('size')){
+            if(size != $(this).data('size')){
                 // Toggle selector class off for previous
                 $(this).siblings('.selected').toggleClass('selected');
                 // Set size variable
@@ -100,9 +140,9 @@ $(document).ready(function(){
                 // Toggle selector class for new setting.
                 $(this).toggleClass('selected');
             }
-        }else{
+        } else{
             // Only act if setting is a change:
-            if(number!=$(this).data('number')){
+            if(number != $(this).data('number')){
                 // Toggle selector class off for previous
                 $(this).siblings('.selected').toggleClass('selected');
                 // Set number variable
@@ -115,25 +155,24 @@ $(document).ready(function(){
 
     // Generate button functionality
     $('.generate').on('click', function(){
-        if(groupNumber == "0" && option == "number"){
-            alert("Please pick the number of teams you want created");
-        }
-        if(groupNumber == "0" && option == "size"){
-            alert("Please pick the size of teams you want created");
-        }
-        if(groupNumber != "0") {
-            // Shuffle names array, store in shuffledArray variable
+        if(size == 0 && number == 0){
+            alert("Please pick the number of teams or the size of teams you want created");
+        } else {
+            // Shuffle names array, store in shuffledArray variable, call groupArray function, pass to display function
             shuffledArray = shuffle(namesArray);
-            // if option by size, call appropriate function:
-            if (option == "size") {
-                groupArray = groupBySize(groupNumber, shuffledArray);
-            }
-            else {
-                groupArray = groupByNumber(groupNumber, shuffledArray);
-            }
-            // Call display()
+            groupArray = groupByNumberAndSize(number,size,shuffledArray);
             display(groupArray);
-        }
+
+            //// If only one option is selected:
+            //if(size == 0 || number == 0) {
+            //    // if option by size, call appropriate function:
+            //    if (size != 0) {
+            //        groupArray = groupBySize(size, shuffledArray);
+            //    }
+            //    else {
+            //        groupArray = groupByNumber(number, shuffledArray);
+            //    }
+            }
     });
 
 });
