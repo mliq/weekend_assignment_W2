@@ -1,32 +1,37 @@
 
 .button {
-    width: 80px;
-    height: 40px;
+    width: 28%;
+    height: 20%;
     background-color: lightgrey;
     border: 2px solid black;
     text-align: center;
-    line-height: 40px;
-    padding: 10px;
-    font-size: 35px;
+    /*line-height: 40px;*/
+    vertical-align: middle;
+    padding: 1.5%;
+/*change to 1% media query under 445px width*/
+    font-size: 120%;
     font-family: monospace;
+    margin: auto;
 }
 
 .numberContainer{
-    /*margin: 15px 0 0 5px;*/
+    display: inline-block;
+    margin: auto;
     border: 2px solid cadetblue;
-    width: 326px;
-    height: 230px;
-    padding: 1px 0 0 13px;
+    width: 45%;
+    height: 80%;
+    padding: 1%;
     float:left;
 }
 
 .sizeContainer{
+    display: inline-block;
     float: right;
-    /*margin: 15px 50px 0 0;*/
+    margin: auto;
     border: 2px solid orangered;
-    width: 326px;
-    height: 230px;
-    padding: 1px 0 0 13px;
+    width: 45%;
+    height: 80%;
+    padding: 1%;
 }
 
 .container{
@@ -35,6 +40,7 @@
     width: 90%;
     height: 270px;
     text-align: center;
+    margin: auto;
 }
 
 .option {
@@ -45,7 +51,8 @@
 
 .generate{
     width: 90%;
-    margin: -20px auto;
+    margin: -40px auto;
+    font-size: 250%;
 }
 
 .number {
@@ -87,4 +94,10 @@
 
 .selected{
     color: red;
+}
+
+@media (max-width: 445px) {
+    .button {
+        padding: 1%;
+    }
 }
