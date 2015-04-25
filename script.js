@@ -60,6 +60,16 @@ $(document).ready(function(){
     // Set default option
     option = "size";
 
+    // Options button functionality
+    $('.option').on('click', function(){
+        option = $(this).data('id');
+        console.log(option);
+        // Change color
+        $('.option').toggleClass('selected');
+
+    });
+
+    // Number button functionality
     $('.number').on('click',function(){
         // Get groupNumber from button text.
         groupNumber=$(this).text();
@@ -77,7 +87,7 @@ $(document).ready(function(){
         }
         // Call display()
         display();
-    })
+    });
 
 
 
