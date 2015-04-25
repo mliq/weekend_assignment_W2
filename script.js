@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, option = "number", groupNumber = "0", displayCounter= 0, delay=0;
+var i = 0, shuffledArray, groupArray, groupCounter, string, groupNumber = "0", displayCounter = 0, delay = 0, size = 0, number = 0;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -86,27 +86,30 @@ function display(groupArray){
 
 $(document).ready(function(){
 
-    // Options button functionality
-    $('.option').on('click', function(){
-        // Set option and toggle class, but only if not the current option:
-        if(option !=$(this).data('id')) {
-            option = $(this).data('id');
-            // Change color
-            $('.option').toggleClass('selected');
-        }
-    });
-
     // Number button functionality
     $('.number').on('click',function(){
 
-        // Set groupNumber and toggle class, but only if not the current option:
-        if(groupNumber !=$(this).text()) {
-            // Change color of previous selection
-            $('.number.selected').toggleClass('selected');
-            // Set variable
-            groupNumber=$(this).text();
-            // Change color of new selection
-            $(this).toggleClass('selected');
+        // Determine if button is number or size setter.
+        if($(this).data('size')!=undefined) {
+            // Only act if setting is a change:
+            if(size!=$(this).data('size')){
+                // Toggle selector class off for previous
+                $(this).siblings('.selected').toggleClass('selected');
+                // Set size variable
+                size = $(this).data('size');
+                // Toggle selector class for new setting.
+                $(this).toggleClass('selected');
+            }
+        }else{
+            // Only act if setting is a change:
+            if(number!=$(this).data('number')){
+                // Toggle selector class off for previous
+                $(this).siblings('.selected').toggleClass('selected');
+                // Set number variable
+                number = $(this).data('number');
+                // Toggle selector class for new setting.
+                $(this).toggleClass('selected');
+            }
         }
     });
 
