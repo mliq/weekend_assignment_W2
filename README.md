@@ -2,18 +2,14 @@
 
 Create an app that sorts our class of 20 into groups of 2-10 each.
 
-## To do:
-1. I did group size first, but assignment is to do by number of groups instead.
+## Pro mode
+* Include button functionality for mouse overs and actives
 
 ## Ideas:
-1. Fade in the teams.
-2. Use class instead of text to identify, or better yet .data().
-3. More visuals (try out jQuery UI?).
-4. Use an array of colors to make each team be a different color.
-5. Make each team fade in sequentially?
-
-## Bugs to Fix:
-1. Groups of 6 leaves one group of only 2 people...
+1. More visuals (try out jQuery UI?).
+2. Use an array of colors to make each team be a different color.
+3. Make each team fade in sequentially?
+4. Show a group of "extras" ?
 
 # Assignment:
 
