@@ -6,3 +6,6 @@ Ideas:
 1. Fade in the teams.
 2. Use class instead of text to identify, or better yet .data().
 3. More visuals (try out jQuery UI?).
+
+Bugs to Fix:
+1. Cannot be run more than once for some reason.

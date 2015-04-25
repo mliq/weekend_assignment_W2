@@ -4,8 +4,9 @@ var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody"
 function shuffle(array){
     // Fisher-Yates shuffle courtesy of: http://bost.ocks.org/mike/shuffle/
 
+    newArray = array.slice(0);
     // initializes m as our array iterator, t as a temporary storage for the 'card' we are taking out of the 'deck', i will be a random index where we will place our 'card'.
-    var m = array.length, t, i;
+    var m = newArray.length, t, i;
 
     //shuffle array.length times
     while (m) {
@@ -13,13 +14,13 @@ function shuffle(array){
         i = Math.floor(Math.random() * m--);
 
         // Store current array index m value in t.
-        t = array[m];
+        t = newArray[m];
         // Store the randomly chosen index value into the currently iterating index space.
-        array[m] = array[i];
+        newArray[m] = newArray[i];
         // store the original currently iterating index value into the randomly chosen index space.
-        array[i] = t;
+        newArray[i] = t;
     }
-    return array;
+    return newArray;
 }
 
 function groupMaker(groupSize, namesArray){
@@ -38,7 +39,6 @@ function groupMaker(groupSize, namesArray){
         }
         groupCounter++;
     }
-    console.log(groupArray);
 }
 
 $(document).ready(function(){
@@ -48,7 +48,6 @@ $(document).ready(function(){
         groupSize=$(this).text();
         // Call groupMaker
         groupMaker(groupSize, namesArray);
-
     });
 
 
