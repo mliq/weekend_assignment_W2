@@ -23,10 +23,15 @@ function shuffle(array){
     return newArray;
 }
 
-function groupMaker(groupSize, namesArray){
+function groupMaker(groupSize, namesArray, toggle){
     // shuffle names array;
     shuffledArray = shuffle(namesArray);
 
+    // Determine if groupSize indicates the size of groups or the number of groups
+    // Default will be toggle = 0, thus groupSize means number of groups.
+    if(toggle = 1){
+
+    }
     // Empty array one by one, sorting into groupsize groups.
     groupArray = [];
     groupCounter=0;
@@ -45,7 +50,7 @@ function display(){
     // Clear display
     $('.results').empty();
     for(i = 0; i < groupArray.length; i++) {
-        string = "<div class = 'groupColumn'>Group " + i + ":<br>";
+        string = "<div class = 'groupColumn'>Team " + i + ":<br>";
         for (j = 0; j < groupArray[i].length; j++){
             string += groupArray[i][j] + "<br>";
         }
@@ -57,10 +62,10 @@ function display(){
 $(document).ready(function(){
 
     $('.generate').on('click',function(){
-        // Get groupsize from button text.
-        groupSize=$(this).text();
+        // Get groupNumber from button text.
+        groupNumber=$(this).text();
         // Call groupMaker()
-        groupMaker(groupSize, namesArray);
+        groupMaker(groupNumber, namesArray,1);
         // Call display()
         display();
     });
