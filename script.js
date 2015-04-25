@@ -62,37 +62,21 @@ function groupByNumber(groupNumber, arr){
 
 function groupByNumberAndSize(num,sz,arr){
     var newArray = [];
-    // If both settings exist
-    if(num != 0 && sz != 0){
-        // Stop when you reach the end of the names though?
-        // Create num arrays
-        for(i = 0; i < num; i++){
-            newArray[i] = [];
-            // Add sz names to each
-            for(j = 0; j < sz; j++){
-                newArray[i].push(arr.shift());
-            }
-        }
-    }
     // If only Number exists
-    else if(sz==0){
+    if(sz==0)
+    {
         sz = Math.floor(arr.length/num);
-        // Create num arrays
-        for(i = 0; i < num; i++){
-            newArray[i] = [];
-            // Add names to each
-            for(j = 0; j < sz; j++){
-                newArray[i].push(arr.shift());
-            }
-        }
-    }
-    // If only Size exists
-    else {
+    } else if(num==0)
+    {
         num = Math.floor(arr.length/sz);
-        for(i = 0; i < num; i++){
-            newArray[i] = [];
-            // Add names to each
-            for(j = 0; j < sz; j++){
+    }
+    // Stop when you reach the end of the names though?
+    // Create num arrays
+    for(i = 0; i < num; i++){
+        newArray[i] = [];
+        // Add sz names to each
+        for(j = 0; j < sz; j++){
+            if(arr.length > 0) {
                 newArray[i].push(arr.shift());
             }
         }
