@@ -22,31 +22,33 @@ function shuffle(array){
     return array;
 }
 
+function groupMaker(groupSize, namesArray){
+    // shuffle names array;
+    shuffledArray = shuffle(namesArray);
+
+    // Empty array one by one, sorting into groupsize groups.
+    groupArray = [];
+    groupCounter=0;
+    while(shuffledArray.length > 0) {
+        groupArray[groupCounter] = [];
+        for (i = 0; i < groupSize; i++){
+            if(shuffledArray.length > 0) {
+                groupArray[groupCounter].push(shuffledArray.pop());
+            }
+        }
+        groupCounter++;
+    }
+    console.log(groupArray);
+}
+
 $(document).ready(function(){
 
     $('.generate').on('click',function(){
         // Get groupsize from button text.
         groupSize=$(this).text();
-        // shuffle names array;
-        shuffledArray = shuffle(namesArray);
+        // Call groupMaker
+        groupMaker(groupSize, namesArray);
 
-        // Empty array one by one, sorting into groupsize groups.
-        groupArray = [];
-
-        groupCounter=0;
-
-        while(shuffledArray.length > 0) {
-            groupArray[groupCounter] = [];
-
-
-            for (i = 0; i < groupSize; i++){
-                if(shuffledArray.length > 0) {
-                    groupArray[groupCounter].push(shuffledArray.pop());
-                }
-            }
-            groupCounter++;
-        }
-        console.log(groupArray);
     });
 
 
