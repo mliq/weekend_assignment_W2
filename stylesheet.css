@@ -46,6 +46,7 @@ br {
 
 .generate{
     width: 200px;
+    margin: -45px 0 0 55px;
 }
 
 .number {
@@ -60,10 +61,10 @@ br {
 }
 
 .results {
-    float:left;
+    /*float:left;*/
     width: 90%;
     height: 300px; /*auto?*/
-    margin: 35px 20px;
+    margin: 5px 20px;
     background-color: white;
     border: 2px solid black;
     font-family: monospace;
@@ -82,4 +83,8 @@ br {
     text-align:center;
     vertical-align: middle;
     padding: 10px;
+}
+
+.selected{
+    color: red;
 }
