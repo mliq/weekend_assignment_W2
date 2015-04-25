@@ -38,8 +38,11 @@ $(document).ready(function(){
         while(shuffledArray.length > 0) {
             groupArray[groupCounter] = [];
 
+
             for (i = 0; i < groupSize; i++){
-                groupArray[groupCounter].push(shuffledArray.pop());
+                if(shuffledArray.length > 0) {
+                    groupArray[groupCounter].push(shuffledArray.pop());
+                }
             }
             groupCounter++;
         }
