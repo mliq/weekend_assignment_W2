@@ -63,24 +63,12 @@
 .results {
     width: 90%;
     display: none;
-    margin: 5px 20px;
+    margin: 5px 4%;
     background-color: white;
     border: 2px solid black;
     font-family: monospace;
     font-size: 12px;
-    text-align:center;
-    padding: 10px;
-}
-
-.remove {
-    width: 100px;
-    height: 10px;
-    background-color: lightgrey;
-    border: 2px solid black;
-    font-family: monospace;
-    font-size: 12px;
-    text-align:center;
-    vertical-align: middle;
+    text-align: center;
     padding: 10px;
 }
 
