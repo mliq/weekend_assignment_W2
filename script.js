@@ -1,4 +1,4 @@
-var i = 0, shuffledArray, groupArray, groupCounter, string, displayCounter = 0, delay = 0, size = 0, number = 0;
+var i = 0, shuffledArray, groupArray, string, displayCounter = 0, delay = 0, size = 0, number = 0;
 var namesArray = ["Erik", "Alicia", "Brian", "Casie", "Chelsea", "Clare", "Cody", "Jeanne", "Kaitlin", "Kelly", "Michael", "Luke", "Mary", "Aaron", "Michelle", "Rom", "Steve", "Terry", "Tracy", "Vince"];
 
 function shuffle(array){
@@ -21,43 +21,6 @@ function shuffle(array){
         newArray[i] = t;
     }
     return newArray;
-}
-
-function groupBySize(groupSize, arr){
-    // Empty array one by one, sorting into groupsize groups.
-    groupArray = [];
-    groupCounter = 0;
-    while(arr.length > 0) {
-        groupArray[groupCounter] = [];
-        for (i = 0; i < groupSize; i++){
-            if(arr.length > 0) {
-                groupArray[groupCounter].push(arr.pop());
-            }
-        }
-        groupCounter++;
-    }
-    return groupArray;
-}
-
-function groupByNumber(groupNumber, arr){
-    // Determine the number of groups we need.
-    var size = Math.floor(arr.length / groupNumber);
-    groupArray = groupBySize(size, arr);
-
-    // Put extra names into distribute array.
-    var distribute = [];
-
-    // Cycle until groupArray is correct length
-    while(groupArray.length > groupNumber) {
-        distribute = groupArray.pop();
-    }
-    // Now add until distribute is empty
-    i = 0;
-    while (distribute.length != 0 ){
-        groupArray[i].push(distribute.pop());
-        i++;
-    }
-    return groupArray;
 }
 
 function groupByNumberAndSize(num,sz,arr){
@@ -157,17 +120,6 @@ $(document).ready(function(){
             shuffledArray = shuffle(namesArray);
             groupArray = groupByNumberAndSize(number,size,shuffledArray);
             display(groupArray);
-
-            //// If only one option is selected:
-            //if(size == 0 || number == 0) {
-            //    // if option by size, call appropriate function:
-            //    if (size != 0) {
-            //        groupArray = groupBySize(size, shuffledArray);
-            //    }
-            //    else {
-            //        groupArray = groupByNumber(number, shuffledArray);
-            //    }
             }
     });
-
 });
