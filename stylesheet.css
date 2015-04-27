@@ -84,10 +84,6 @@
     padding: 10px;
 }
 
-.selected{
-    color: red;
-}
-
 @media (max-width: 445px) {
     .button {
         padding: 1%;
@@ -107,4 +103,13 @@
     /*font-size: 250%;*/
     line-height: 100%;
     display: inline-block;
+}
+
+.hovered {
+    color: white;
+    background-color: black;
+}
+
+.selected{
+    color: red;
 }

@@ -114,6 +114,13 @@ function display(arr){
 
 $(document).ready(function(){
 
+    // Hover button functionality
+    $('.button').hover(function() {
+        $(this).addClass('hovered');
+    }, function() {
+        $(this).removeClass('hovered')
+    });
+
     // Number button functionality
     $('.number').on('click',function(){
 
