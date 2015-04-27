@@ -2,18 +2,13 @@
 
 Create an app that sorts our class of 20 into groups of 2-10 each.
 
-## Pro mode
-* Include button functionality for mouse overs and actives
-
 ## Ideas:
 1. More visuals (try out jQuery UI?).
 2. Use an array of colors to make each team be a different color.
 3. Make each team fade in sequentially?
-4. Show a group of "extras" ?
+4. Show a group of "extras" when settings do not use all names?
 
-# Assignment:
-
-# Weekend Challenge Week 2
+# Assignment: Weekend Challenge Week 2
 
 Welcome to your weekend challenge Primers!
 
